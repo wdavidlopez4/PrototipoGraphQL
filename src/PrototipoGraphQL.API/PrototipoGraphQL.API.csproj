@@ -22,9 +22,5 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="GraphQL\Queries\" />
-  </ItemGroup>
-
 
 </Project>

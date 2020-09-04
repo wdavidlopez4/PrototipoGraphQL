@@ -24,7 +24,7 @@ namespace PrototipoGraphQL.API.context
                     {
                         Id = 1,
                         Nacionalidad = "peruana",
-                        anios = 44,
+                        Anios = 44,
                         Nombre = "camilo",
                         Libros = { new Libro { Id = 1}, new Libro { Id = 2 } }
                     },
@@ -33,7 +33,7 @@ namespace PrototipoGraphQL.API.context
                     {
                         Id = 2,
                         Nacionalidad = "colombiano",
-                        anios = 44,
+                        Anios = 44,
                         Nombre = "juan",
                         Libros = { new Libro { Id = 3 }, new Libro { Id = 4 } }
                     }
@@ -45,14 +45,14 @@ namespace PrototipoGraphQL.API.context
                         Id = 1,
                         Nombre = "literatura",
                         Descripcion = "nuevo",
-                        IdAutor = 1
+                        Autor = { Id = 1}
                     },
                     new Libro
                     {
                         Id = 2,
                         Nombre = "literatura",
                         Descripcion = "nuevo",
-                        IdAutor = 1
+                        Autor = { Id = 1 }
                     },
 
                     new Libro
@@ -60,14 +60,14 @@ namespace PrototipoGraphQL.API.context
                         Id = 3,
                         Nombre = "literatura grado 7",
                         Descripcion = "nuevo",
-                        IdAutor = 2
+                        Autor = { Id = 2 }
                     },
                     new Libro
                     {
                         Id = 4,
                         Nombre = "literatura grado 9",
                         Descripcion = "nuevo",
-                        IdAutor = 2
+                        Autor = { Id = 2 }
                     }
 
                     );
