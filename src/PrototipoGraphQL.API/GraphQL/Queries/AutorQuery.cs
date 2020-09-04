@@ -20,7 +20,7 @@ namespace PrototipoGraphQL.API.GraphQL.Queries
 
             //consulta un autor
             Field<AutorType>("autor", "retorna un autor", 
-                arguments: new QueryArguments( new QueryArgument<IdGraphType> { Name = "Id", Description = "id del autor"}),
+                arguments: new QueryArguments( new QueryArgument<IdGraphType> { Name = "id", Description = "id del autor"}),
                 resolve: context => 
                 {
 

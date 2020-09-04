@@ -19,40 +19,42 @@ namespace PrototipoGraphQL.API.context
                     return;
                 }
 
-                context.Autores.AddRange(
-                    new Autor
-                    {
-                        Id = 1,
-                        Nacionalidad = "peruana",
-                        Anios = 44,
-                        Nombre = "camilo",
-                        Libros = { new Libro { Id = 1}, new Libro { Id = 2 } }
-                    },
 
-                    new Autor
-                    {
-                        Id = 2,
-                        Nacionalidad = "colombiano",
-                        Anios = 44,
-                        Nombre = "juan",
-                        Libros = { new Libro { Id = 3 }, new Libro { Id = 4 } }
-                    }
-                    );
+                //crear autores
+                 var autor1 = context.Autores.Add(new Autor 
+                 {
+                     Id = 1,
+                     Nacionalidad = "peruana",
+                     Anios = 44,
+                     Nombre = "camilo",
 
+                 });
+
+                var autor2 = context.Autores.Add(new Autor
+                {
+                    Id = 2,
+                    Nacionalidad = "peruana",
+                    Anios = 44,
+                    Nombre = "camilo",
+
+                });
+
+
+                //creamos los libros
                 context.Libros.AddRange(
                     new Libro
                     {
                         Id = 1,
                         Nombre = "literatura",
                         Descripcion = "nuevo",
-                        Autor = { Id = 1}
+                        IdAutor = autor1.Entity.Id
                     },
                     new Libro
                     {
                         Id = 2,
                         Nombre = "literatura",
                         Descripcion = "nuevo",
-                        Autor = { Id = 1 }
+                        IdAutor = autor1.Entity.Id
                     },
 
                     new Libro
@@ -60,19 +62,19 @@ namespace PrototipoGraphQL.API.context
                         Id = 3,
                         Nombre = "literatura grado 7",
                         Descripcion = "nuevo",
-                        Autor = { Id = 2 }
+                        IdAutor = autor2.Entity.Id
                     },
                     new Libro
                     {
                         Id = 4,
                         Nombre = "literatura grado 9",
                         Descripcion = "nuevo",
-                        Autor = { Id = 2 }
+                        IdAutor = autor2.Entity.Id
                     }
 
                     );
 
-
+                //guardamos en memoria 
                 context.SaveChanges();
             }
         }

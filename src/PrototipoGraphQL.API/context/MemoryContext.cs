@@ -18,5 +18,6 @@ namespace PrototipoGraphQL.API.context
             //comprueba si la db esta creada si no la crea
             Database.EnsureCreated();
         }
+
     }
 }
