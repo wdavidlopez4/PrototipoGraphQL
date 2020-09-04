@@ -13,7 +13,7 @@ namespace PrototipoGraphQL.API.Models
 
         public string Nacionalidad { get; set; }
 
-        public int anios { get; set; }
+        public int Anios { get; set; }
 
         public List<Libro> Libros { get; set; }
     }

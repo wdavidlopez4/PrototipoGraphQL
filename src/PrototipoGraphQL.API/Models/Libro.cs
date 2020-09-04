@@ -13,8 +13,6 @@ namespace PrototipoGraphQL.API.Models
 
         public string Descripcion { get; set; }
 
-        public int IdAutor { get; set; }
-
         public Autor Autor { get; set; }
     }
 }
