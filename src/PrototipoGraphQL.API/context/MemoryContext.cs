@@ -19,5 +19,65 @@ namespace PrototipoGraphQL.API.context
             Database.EnsureCreated();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Libro>()
+                .HasOne<Autor>(x => x.Autor)
+                .WithMany(y => y.Libros)
+                .HasForeignKey(z => z.IdAutor);
+
+            modelBuilder.Entity<Autor>().HasData(
+                new Autor
+                {
+                    Id = 1,
+                    Nacionalidad = "peruana",
+                    Anios = 44,
+                    Nombre = "camilo"
+                },
+                new Autor
+                {
+                    Id = 2,
+                    Nacionalidad = "peruana",
+                    Anios = 44,
+                    Nombre = "camilo",
+
+                }
+                );
+
+            modelBuilder.Entity<Libro>().HasData(
+                new Libro
+                {
+                    Id = 1,
+                    Nombre = "literatura",
+                    Descripcion = "nuevo",
+                    IdAutor = 1
+                },
+                new Libro
+                {
+                    Id = 2,
+                    Nombre = "español",
+                    Descripcion = "nuevo",
+                    IdAutor = 1
+                },
+                new Libro
+                {
+                    Id = 3,
+                    Nombre = "matematicas",
+                    Descripcion = "nuevo",
+                    IdAutor = 2
+                },
+                new Libro
+                {
+                    Id = 4,
+                    Nombre = "mate",
+                    Descripcion = "nuevo",
+                    IdAutor = 2
+                }
+                );
+
+            
+        }
     }
 }
