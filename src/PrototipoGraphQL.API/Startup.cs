@@ -46,6 +46,9 @@ namespace PrototipoGraphQL.API
             //configurar el schema
             services.AddScoped<MemorySchema>();
 
+            //prueba schema 
+            services.AddScoped<PruebaMemory>();
+
             //confirmar si se configuro graphql "muestra las execciones en tiempo de desarrollo"
             services.AddGraphQL(x => { x.ExposeExceptions = true; }).AddGraphTypes(ServiceLifetime.Scoped);
 
@@ -64,6 +67,9 @@ namespace PrototipoGraphQL.API
 
             //ejecutar graphql
             app.UseGraphQL<MemorySchema>();
+
+            //prueba schema
+            app.UseGraphQL<PruebaMemory>("/Prueba");
 
             //ejecutar playground
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
